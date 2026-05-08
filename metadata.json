@@ -1,0 +1,8 @@
+{
+  "name": "Remix: BioDa-Col",
+  "description": "Collect all Biodiversity Data",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": []
+}

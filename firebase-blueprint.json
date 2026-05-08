@@ -1,0 +1,44 @@
+{
+  "entities": {
+    "Observation": {
+      "title": "Observation",
+      "description": "A field observation record",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "type": { "enum": ["plant", "animal", "study_area"] },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "imageUrl": { "type": "string" },
+        "speciesSuggestions": { "type": "array" },
+        "selectedSpecies": { "type": "object" },
+        "variables": { "type": "object" },
+        "customVariables": { "type": "array" },
+        "notes": { "type": "string" },
+        "location": { "type": "object" }
+      },
+      "required": ["userId", "type", "timestamp"]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Researcher profile and settings",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "customVariableTemplates": { "type": "object" }
+      },
+      "required": ["uid", "email"]
+    }
+  },
+  "firestore": {
+    "/observations/{observationId}": {
+      "schema": "Observation",
+      "description": "Collection of researcher observations"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile data"
+    }
+  }
+}
